@@ -1,0 +1,30 @@
+/**
+ * Here is a selection of useful LESS mixins.
+ *
+ * Feel free to use/abuse/contribute.
+ */
+
+/**
+ * Use this when you want to make something inline-block, it will automatically
+ * add in the IE7/8 fix.
+ *
+ * @usage: .inline-block;
+ */
+.inline-block() {
+	display: inline-block;
+	zoom: 1;
+	*display: inline;
+}
+
+/**
+ * Use this when you want to change the opacity of an object, it will also do the
+ * IE 8/9 fix.
+ *
+ * @usage: .opacity(0.5);
+ */
+.opacity(@opacity) {
+	@ms-opacity: @opacity * 100;
+	filter: alpha(opacity=@ms-opacity); 
+    opacity: @opacity;          
+    -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(opacity=@{ms-opacity})";
+}
